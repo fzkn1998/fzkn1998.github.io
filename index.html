@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Fayyaz Khan: AI/ML engineer and lecturer building computer vision systems for industrial safety.">
+<link rel="icon" href="fayyaz.jpg">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Fayyaz Khan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky profile sidebar (photo, contact, education, skills) + main column (bio, research, compact video rows, experience). Detection-box corners frame photo and videos. */
+:root{
+  --paper:#F3F5F4; --surface:#FFFFFF; --ink:#16212A; --muted:#5A6772; --line:#D6DDE0;
+  --accent:#D99A06; --accent-ink:#1B1400; --ok:#1E7A57; --review:#2F5E9E;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F161B; --surface:#151E25; --ink:#E6ECEF; --muted:#94A2AD; --line:#26333D;
+  --accent:#F0B429; --accent-ink:#1B1400; --ok:#4CC28F; --review:#7FA8E0; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#0F161B; --surface:#151E25; --ink:#E6ECEF; --muted:#94A2AD; --line:#26333D;
+  --accent:#F0B429; --accent-ink:#1B1400; --ok:#4CC28F; --review:#7FA8E0; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:2px}
+a:focus-visible,button:focus-visible,video:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.page{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:290px minmax(0,1fr);gap:48px;padding-block:40px 48px}
+.page > *{min-width:0}
+
+/* Sidebar */
+aside.side{position:sticky;top:calc(24px + env(safe-area-inset-top,0px));align-self:start;display:flex;flex-direction:column;gap:22px}
+.id{display:flex;flex-direction:column;gap:14px}
+.photo{position:relative;width:132px;margin-top:18px}
+.photo img{display:block;width:132px;height:160px;object-fit:cover;object-position:50% 20%;border-radius:3px}
+.photo::after{content:"";position:absolute;inset:-1px;border:2px solid var(--accent);border-radius:3px;pointer-events:none}
+.photo .tag{position:absolute;left:-1px;top:-20px;background:var(--accent);color:var(--accent-ink);font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:2px 2px 0 0;white-space:nowrap}
+.id h1{font-size:38px;line-height:1.02;font-weight:700}
+.id .role{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.status{font-size:14px;display:flex;align-items:center;gap:8px;font-weight:500}
+.status::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 20%,transparent)}
+.contact{display:flex;flex-direction:column;gap:6px}
+.chip{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:6px 11px;font:inherit;font-size:14px;color:var(--ink);text-decoration:none;cursor:pointer;text-align:left;width:100%}
+.chip:hover{border-color:var(--accent)}
+.chip .k{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;width:46px;flex:none}
+.side .block{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.side .block .muted{color:var(--muted)}
+.edu-item strong{font-weight:600;display:block;line-height:1.35}
+.skill-list{display:flex;flex-direction:column;gap:7px}
+.skill-list div{display:grid;grid-template-columns:78px 1fr;gap:10px}
+.skill-list dt{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.skill-list dd{margin:0;line-height:1.4}
+dl{margin:0}
+
+/* Main */
+main{display:flex;flex-direction:column;gap:40px}
+section{display:flex;flex-direction:column;gap:16px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px}
+.sh h2{font-size:24px;font-weight:700}
+.sh p{color:var(--muted);font-size:13.5px}
+
+.bio .lede{font-family:var(--display);font-size:clamp(22px,2.6vw,28px);line-height:1.25;font-weight:500;max-width:34ch;text-wrap:balance}
+.bio .lede em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent) 38%,transparent) 62%)}
+.bio-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;font-size:15.5px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.facts div{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.facts b{font-family:var(--display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.facts span{font-size:12.5px;color:var(--muted);line-height:1.3}
+
+/* Research */
+.interests{display:flex;flex-wrap:wrap;gap:6px}
+.interests span{font-size:13.5px;border:1px solid var(--line);background:var(--surface);padding:4px 11px;border-radius:999px}
+.paper{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px}
+.paper > *{min-width:0}
+.paper .meta{display:flex;flex-direction:column;gap:10px}
+.pill{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--review);border:1px solid color-mix(in srgb,var(--review) 45%,transparent);background:color-mix(in srgb,var(--review) 10%,transparent);padding:3px 9px;border-radius:999px}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.paper h3{font-size:20px;line-height:1.25;font-weight:700}
+.paper .authors{font-size:14.5px}
+.paper .authors b{font-weight:600}
+.paper .journal{font-size:14.5px;color:var(--muted)}
+.paper .journal i{color:var(--ink)}
+.paper .about{font-size:14.5px}
+.paper .ids{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.snap{display:flex;flex-direction:column;gap:6px;border:0;background:none;padding:0;cursor:zoom-in;font:inherit;color:inherit;text-align:left}
+.snap img{display:block;width:100%;border:1px solid var(--line);border-radius:4px;background:#fff}
+.snap .label{font-size:10.5px}
+
+/* Projects: compact rows */
+.proj{display:grid;grid-template-columns:minmax(0,46%) minmax(0,1fr);gap:22px;align-items:start;padding-block:6px 18px;border-bottom:1px solid var(--line)}
+.proj:last-child{border-bottom:0;padding-bottom:0}
+.proj > *{min-width:0}
+.frame{position:relative;margin:7px}
+.frame video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;object-fit:contain;background:#0B1014;border-radius:2px}
+.frame .c{position:absolute;width:16px;height:16px;border:2.5px solid var(--accent);pointer-events:none}
+.frame .c.tl{left:-6px;top:-6px;border-right:0;border-bottom:0}
+.frame .c.tr{right:-6px;top:-6px;border-left:0;border-bottom:0}
+.frame .c.bl{left:-6px;bottom:-6px;border-right:0;border-top:0}
+.frame .c.br{right:-6px;bottom:-6px;border-left:0;border-top:0}
+.caption{font-family:var(--mono);font-size:11px;color:var(--muted);margin:8px 7px 0}
+.ptext{display:flex;flex-direction:column;gap:8px}
+.ptext h3{font-size:20px;line-height:1.2;font-weight:700}
+.ptext .where{font-size:13.5px;color:var(--muted)}
+.ptext > p{font-size:15px}
+.stack{display:flex;flex-wrap:wrap;gap:5px}
+.stack span{font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);background:var(--surface);padding:2px 7px;border-radius:3px}
+details{font-size:14.5px}
+summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--ink);list-style:none;display:inline-flex;align-items:center;gap:6px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-family:var(--mono);display:inline-grid;place-items:center;width:16px;height:16px;border:1px solid var(--line);border-radius:3px;font-size:12px;line-height:1}
+details[open] summary::before{content:"−"}
+details ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+details li::marker{color:var(--accent)}
+
+/* Experience */
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.timeline li{display:grid;grid-template-columns:150px 1fr;gap:18px;font-size:15px}
+.timeline .when{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.timeline strong{font-weight:600}
+.timeline .org{color:var(--muted)}
+.timeline p{font-size:14px;color:var(--muted);margin-top:1px}
+
+footer{border-top:1px solid var(--line);padding-top:18px;font-size:14px;color:var(--muted)}
+
+dialog{border:0;padding:0;background:transparent;max-width:min(1040px,calc(100vw - 32px))}
+dialog::backdrop{background:rgba(8,12,15,.78)}
+dialog img{display:block;width:100%;border-radius:4px;background:#fff}
+dialog form{display:flex;justify-content:flex-end;margin-bottom:8px}
+dialog button{font:inherit;font-size:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 12px;cursor:pointer}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:8px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+
+@media (max-width:960px){
+  .page{grid-template-columns:1fr;gap:36px;padding-block:28px 40px}
+  aside.side{position:static}
+  .side-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .paper{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .bio-cols{grid-template-columns:1fr;gap:12px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proj{grid-template-columns:1fr;gap:12px}
+  .timeline li{grid-template-columns:1fr;gap:0}
+}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<aside class="side">
+  <div class="id">
+    <div class="photo">
+      <span class="tag">person · 0.99</span>
+      <img src="fayyaz.jpg" alt="Portrait of Fayyaz Khan" width="132" height="160">
+    </div>
+    <h1>Fayyaz Khan</h1>
+    <p class="role">AI / ML Engineer · Lecturer<br>Karachi, Pakistan</p>
+    <p class="status">Open to new opportunities</p>
+    <div class="contact">
+      <button class="chip" type="button" data-copy="fzkn1998@gmail.com"><span class="k">Email</span>fzkn1998@gmail.com</button>
+      <button class="chip" type="button" data-copy="+92 313 0213253"><span class="k">Phone</span>+92 313 0213253</button>
+      <a class="chip" href="https://github.com/fzkn1998" target="_blank" rel="noopener"><span class="k">GitHub</span>fzkn1998</a>
+    </div>
+  </div>
+
+  <div class="side-grid">
+    <div class="block">
+      <span class="label">Education</span>
+      <div class="edu-item"><strong>MS Computer Science (AI &amp; Data Science)</strong><span class="muted">Mohammad Ali Jinnah University · 2022–24 · CGPA 3.67/4.00</span><br>Thesis: Pothole Detection Using Deep Learning</div>
+      <div class="edu-item"><strong>BE Computer Systems Engineering</strong><span class="muted">Mohammad Ali Jinnah University · 2017–21 · CGPA 3.41/4.00</span></div>
+    </div>
+    <div class="block">
+      <span class="label">Skills</span>
+      <dl class="skill-list">
+        <div><dt>Vision</dt><dd>YOLOv8, OpenCV, DeepSORT, Re-ID, VLMs</dd></div>
+        <div><dt>LLM/NLP</dt><dd>RAG, LangChain, LangGraph, MCP, agents, STT/TTS</dd></div>
+        <div><dt>ML</dt><dd>PyTorch, TensorFlow, Keras, scikit-learn</dd></div>
+        <div><dt>Backend</dt><dd>FastAPI, Flask, Django, .NET, SCADA</dd></div>
+        <div><dt>MLOps</dt><dd>Docker, AWS, MLflow, Git, Roboflow</dd></div>
+        <div><dt>Code</dt><dd>Python, SQL, C#, C++, C, Java</dd></div>
+      </dl>
+    </div>
+    <div class="block">
+      <span class="label">Certifications &amp; languages</span>
+      <span class="muted">OpenCV Bootcamp, TensorFlow &amp; Keras Bootcamp (OpenCV University) · Power BI with AI (AinGenx) · MERN Stack (Hazza Institute)</span>
+      <span>English (professional) · Urdu (native)</span>
+    </div>
+  </div>
+</aside>
+
+<main>
+
+<section class="bio" id="about">
+  <p class="label">About</p>
+  <p class="lede">AI/ML engineer and lecturer building <em>computer vision systems for industrial safety</em>, with research in robust machine learning.</p>
+  <div class="bio-cols">
+    <p>As an AI/ML Engineer at Stingray Technologies, I take projects from raw footage to a running system: labelling data, training models, writing the backend and deploying on site. My systems check worker safety at a PSO fuel terminal, verify lorry position on weighbridges and find ships that hide their AIS signal in satellite radar images.</p>
+    <p>I also teach Machine Learning and Natural Language Processing as a visiting lecturer at Mohammad Ali Jinnah University and Iqra University. My first journal paper, on detecting GNSS spoofing with machine learning, is under review.</p>
+  </div>
+  <div class="facts">
+    <div><b>5+</b><span>years in AI, industry and teaching</span></div>
+    <div><b>3</b><span>deployed vision systems shown below</span></div>
+    <div><b>3</b><span>universities taught at</span></div>
+    <div><b>1</b><span>journal paper under review</span></div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="sh"><h2>Research</h2><p>Interests and publications</p></div>
+  <div class="interests">
+    <span>Robust and trustworthy ML</span><span>GNSS / navigation security</span><span>Computer vision for safety</span><span>SAR remote sensing</span><span>Vision-language models</span><span>Generalisation to unseen scenarios</span>
+  </div>
+  <article class="paper">
+    <div class="meta">
+      <span class="pill">Under review · submitted 8 Nov 2026</span>
+      <h3>RINEX-Only Machine Learning for GNSS Spoofing Detection: A Leave-One-Scenario-Out Evaluation on OAKBAT</h3>
+      <p class="authors"><b>Fayyaz Khan</b>, Syed Zaki ul Hasan Naqvi</p>
+      <p class="journal">Journal: <i>Intelligent Computing for Engineering</i> · Research article</p>
+      <p class="about">Detects spoofing attacks on satellite navigation using only standard RINEX receiver observation files, with no special hardware. Each attack scenario of the OAKBAT dataset is held out in turn, to test how well the models handle attacks they have not seen in training.</p>
+      <p class="ids"><span>Manuscript ID ICE-2026-487877</span><span>First author</span></p>
+    </div>
+  </article>
+</section>
+
+<section id="projects">
+  <div class="sh"><h2>Deployed projects</h2><p>Screen recordings of the working systems, no sound</p></div>
+
+  <article class="proj">
+    <div>
+      <div class="frame">
+        <video src="gantry.mp4" poster="gantry.jpg" controls muted playsinline preload="metadata"></video>
+        <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+      </div>
+      <p class="caption">3:25 · camera view, violation log, review</p>
+    </div>
+    <div class="ptext">
+      <h3>Gantry Safety Monitoring</h3>
+      <p class="where">PSO Faisalabad Terminal · 7 bays, 4 cameras · deployed</p>
+      <p>Checks that workers on top of fuel tankers wear a helmet, harness and safety shoes and keep the harness hooked. A vision-language model double-checks every violation before it is logged.</p>
+      <div class="stack"><span>YOLOv8</span><span>Re-ID</span><span>VLM</span><span>FastAPI</span><span>Flask</span><span>MLflow</span></div>
+      <details>
+        <summary>Details</summary>
+        <ul>
+          <li>Detection zone per bay; each person is tracked across frames before a violation is raised, to cut false alarms.</li>
+          <li>Flask dashboard with live view, violation log by bay, bay analysis and CSV reports.</li>
+          <li>Reviewers correct boxes and add images to training data; retraining runs through a local MLOps pipeline with MLflow.</li>
+          <li>AI alerts also connected to the plant's SCADA system with alarms, snapshots and event logging.</li>
+        </ul>
+      </details>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div>
+      <div class="frame">
+        <video src="weighbridge.mp4" poster="weighbridge.jpg" controls muted playsinline preload="metadata"></video>
+        <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+      </div>
+      <p class="caption">2:57 · lorry entering and parking on the bridge</p>
+    </div>
+    <div class="ptext">
+      <h3>Weighbridge Alignment and Driver Check</h3>
+      <p class="where">Entrance weighbridge · existing CCTV camera</p>
+      <p>Makes sure the lorry stands fully on the bridge and the driver steps out before weighing, two checks the operator used to do by eye.</p>
+      <div class="stack"><span>YOLOv8-seg</span><span>OpenCV</span><span>Perspective transform</span><span>Tracking</span></div>
+      <details>
+        <summary>Details</summary>
+        <ul>
+          <li>Segments the lorry and bridge plate, then maps the camera view to a top view to measure position.</li>
+          <li>Live status for the operator: Empty, Stop, Parked, and whether the lorry is centred.</li>
+          <li>Logs a timed violation if the driver stays inside while the lorry is on the bridge. No extra sensors needed.</li>
+        </ul>
+      </details>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div>
+      <div class="frame">
+        <video src="maritime.mp4" poster="maritime.jpg" controls muted playsinline preload="metadata"></video>
+        <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+      </div>
+      <p class="caption">8:22 · upload, processing and dashboard</p>
+    </div>
+    <div class="ptext">
+      <h3>SAR Maritime Intelligence</h3>
+      <p class="where">Sentinel-1 satellite radar matched with AIS data</p>
+      <p>Finds ships in radar satellite images and flags "dark vessels" that have switched off their AIS location signal.</p>
+      <div class="stack"><span>PyTorch</span><span>SAR imagery</span><span>12-model ensemble</span><span>AIS</span><span>Leaflet</span></div>
+      <details>
+        <summary>Details</summary>
+        <ul>
+          <li>Tiles Sentinel-1 IW GRD scenes and runs an ensemble of 12 models with flip test-time augmentation.</li>
+          <li>Matches detections to AIS records by distance and time (500 m, ±120 min by default); unmatched ships are marked dark.</li>
+          <li>Dashboard with analytics, dark vessel list, map view, scene comparison and reports.</li>
+        </ul>
+      </details>
+    </div>
+  </article>
+</section>
+
+<section id="experience">
+  <div class="sh"><h2>Experience</h2></div>
+  <ul class="timeline">
+    <li><span class="when">Jan 2025 – now</span><div><strong>AI / ML Engineer</strong> <span class="org">· Stingray Technologies</span><p>End-to-end AI for client projects. Also built a voice AI agent (speech-to-text, text-to-speech) on the EMIS Web healthcare API.</p></div></li>
+    <li><span class="when">Sep 2026 – now</span><div><strong>Visiting Lecturer</strong> <span class="org">· Mohammad Ali Jinnah University</span><p>Natural Language Processing, Software Project Management.</p></div></li>
+    <li><span class="when">Oct 2025 – now</span><div><strong>Visiting Lecturer</strong> <span class="org">· Iqra University, Airport Campus</span><p>Machine Learning, Applications of ICT, Introduction to Python.</p></div></li>
+    <li><span class="when">Feb 2022 – Dec 2024</span><div><strong>Junior Lecturer &amp; Lab Engineer</strong> <span class="org">· PAF-KIET</span><p>Taught ML, OOP and Software Design &amp; Architecture; ran AI and data science labs; OBE documents for PEC accreditation.</p></div></li>
+    <li><span class="when">Jul – Dec 2021</span><div><strong>.NET Intern</strong> <span class="org">· Honda New Autos</span><p>Web application development and testing.</p></div></li>
+  </ul>
+</section>
+
+<footer>Thank you for visiting. I am happy to share my thesis, code or the full manuscript on request.</footer>
+</main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var toast=document.getElementById('toast'),t;
+  function show(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show')},1800)}
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.getAttribute('data-copy');
+      function fb(){var r=document.createRange();r.selectNodeContents(b);var s=getSelection();s.removeAllRanges();s.addRange(r);show('Selected. Press Ctrl+C to copy')}
+      try{navigator.clipboard.writeText(v).then(function(){show('Copied '+v)},fb)}catch(e){fb()}
+    });
+  });
+  var vids=document.querySelectorAll('video');
+  vids.forEach(function(v){v.addEventListener('play',function(){vids.forEach(function(o){if(o!==v)o.pause()})})});
+})();
+</script>
+</body>
+</html>
